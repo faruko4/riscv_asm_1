@@ -33,3 +33,16 @@ if i use .byte -> sb , a0 , 0(sp) .........sb a1 , 1(sp).....offsets -> anything
 if i use .hword -> sh  , a0 , 0(sp) ... sh a1 , 2(sp) ......ofsets -> multiple of 2 
 if i use .word -> sw a0 , 0(sp) ....sw a1 , 4(sp) .......ofsets -> multiple of 4 
 
+so the thing is when i use .balign 4 what happens actually ?
+for example -----
+.section .data
+.balign 4
+greeting:
+    .ascii "Hello, World!\0" 
+
+
+how .balign 4 actually affecting the programme ? 
+so  here the size of the string with null terminator is 14 bytes 
+I thought earlier that, this makeing the address of hello world's each charecter divisible by 4 ....but this is worng 
+because .balign only affect to the first charecters memory address like it directly made 'H' -> 1200  but then e -> 1201 and l -> 1202 ...simply increase 1 byte percharecter 
+so this is the fact .....this is only affects on the first charecter
