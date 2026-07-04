@@ -30,4 +30,30 @@ _start:
    li a7 , 93 
    ecall 
 ____________________________________________________________________________________________________________________________________
+this is another and very usefull code i think 
+
+
+
+
+.section .data 
+message:  .ascii "hello world and again \n"
+message_final :
+     .equ message_len , message_final - message 
+.section .text 
+.global _start 
+_start: 
+    call  print_message 
+    li a0 , 0 
+    li a7 , 93 
+    ecall 
+
+
+    print_message:
+        li a0 ,1
+        la a1 , message 
+        li a2 , message_len 
+        li a7 , 64 
+        ecall 
+        ret
+______________________________________________________________________________________________________________________________________
 
